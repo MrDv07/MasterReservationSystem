@@ -1,0 +1,17 @@
+package com.axis.Entity;
+
+public class Train {
+	
+	private int id;
+    private String source;
+    private String destination;
+    private String trainName;
+    private int hoursOfJourney;
+    private int numberOfStops;
+    private int fareOfSleeperClass;
+    private int fareOf3Ac;
+    private int fareOf2Ac;
+    private int fareOf1Ac;
+
+    
+}

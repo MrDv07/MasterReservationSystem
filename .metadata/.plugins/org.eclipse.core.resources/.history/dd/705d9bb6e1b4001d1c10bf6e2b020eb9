@@ -1,0 +1,69 @@
+package com.axis.Service;
+
+import java.time.LocalDate;
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.axis.Config.TrainServiceFeign;
+import com.axis.Entity.Booking;
+import com.axis.Entity.Train;
+import com.axis.Repository.BookingRepository;
+
+@Service
+public class BookingServiceImpl {
+    @Autowired
+    private BookingRepository bookingRepository;
+    
+    @Autowired
+    private TrainServiceFeign trainServiceClient;
+    
+    public Booking bookTicket(String username, String serviceType, String nameOfMode, int numberOfMode, 
+            String reservationClass, String source, String destination, Date travelDate, int numberOfPassengers) {
+        // call train service using feign client to get fare and other details
+        Train train = trainServiceClient.getTrainDetails(source, destination, nameOfMode);
+        int fare = calculateFare(train, reservationClass, numberOfPassengers);
+        
+        // create booking object
+        Booking booking = new Booking();
+        booking.setUsername(username);
+        booking.setBookingDate(LocalDate.now());
+        booking.setServiceType(serviceType);
+        booking.setNameOfMode(nameOfMode);
+        booking.setNumberOfMode(numberOfMode);
+        booking.setReservationClass(reservationClass);
+        booking.setSource(source);
+        booking.setDestination(destination);
+        booking.setTravelDate(travelDate);
+        booking.setNumberOfPassengers(numberOfPassengers);
+        booking.setNumberOfStops(train.getNumberOfStops());
+        booking.setHoursOfJourney(train.getHoursOfJourney());
+        booking.setFare(fare);
+        
+        // save booking object
+        return bookingRepository.save(booking);
+    }
+    
+    private int calculateFare(Train train, String reservationClass, int numberOfPassengers) {
+        int fare = 0;
+        switch (reservationClass) {
+            case "sleeperclass":
+                fare = train.getFareOfSleeperClass();
+                break;
+            case "1ac":
+                fare = train.getFareOf1Ac();
+                break;
+            case "2ac":
+                fare = train.getFareOf2Ac();
+                break;
+            case "3ac":
+                fare = train.getFareOf3Ac();
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid reservation class");
+        }
+        return fare * numberOfPassengers;
+    }
+}
+

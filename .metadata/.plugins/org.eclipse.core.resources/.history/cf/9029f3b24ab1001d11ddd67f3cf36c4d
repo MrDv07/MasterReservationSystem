@@ -1,0 +1,22 @@
+package com.axis.Service;
+
+import java.util.List;
+
+import com.axis.Entity.Booking;
+
+public interface BookingService {
+	
+	
+	Booking createBooking(Booking booking);
+	
+	List<Booking> getBookingsByUsername(String username);
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

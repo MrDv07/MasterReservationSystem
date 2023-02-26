@@ -1,0 +1,13 @@
+package com.axis.Config;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient
+public interface TrainServiceFeign {
+	
+	
+	
+	
+	
+
+}

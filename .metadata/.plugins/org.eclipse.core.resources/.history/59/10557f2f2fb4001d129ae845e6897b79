@@ -1,0 +1,14 @@
+package com.axis.TrainService.Exception;
+
+public class InvalidPhoneNumberException  extends RuntimeException {
+
+    String message;
+
+    public InvalidPhoneNumberException(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}

@@ -1,0 +1,25 @@
+//package com.axis.Config;
+//
+//import org.springframework.cloud.openfeign.FeignClient;
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.RequestBody;
+//
+//@FeignClient(name = "train-service", url = "http://localhost:8081")
+//public interface TrainFeignClient {
+//    
+//    @GetMapping("/train/byName/{trainName}")
+//    Train findByTrainName(@PathVariable("trainName") String trainName);
+//
+//    @GetMapping("/train/bySourceAndDestination/{source}/{destination}")
+//    List<Train> findBySourceAndDestination(@PathVariable("source") String source,
+//                                            @PathVariable("destination") String destination);
+//
+//}
+//
+//	
+//	
+//	
+//	
+//	
+//
+//}

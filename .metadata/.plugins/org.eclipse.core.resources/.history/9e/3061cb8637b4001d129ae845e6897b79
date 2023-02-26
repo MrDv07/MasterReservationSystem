@@ -1,0 +1,116 @@
+package com.axis.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Bus")
+public class Bus {
+	
+	
+	@Id
+	@Column(name = "bus_id")
+	private int id;
+    private String source;
+    private String destination;
+    private String busName;
+    private int hoursOfJourney;
+    private int numberOfStops;
+    private int fareOfNonAcSleeper;
+    private int fareOfAcSleeper;
+    
+    
+	public Bus() {
+		super();
+	}
+
+	
+	public Bus(int id, String source, String destination, String busName, int hoursOfJourney, int numberOfStops,
+			int fareOfNonAcSleeper, int fareOfAcSleeper) {
+		super();
+		this.id = id;
+		this.source = source;
+		this.destination = destination;
+		this.busName = busName;
+		this.hoursOfJourney = hoursOfJourney;
+		this.numberOfStops = numberOfStops;
+		this.fareOfNonAcSleeper = fareOfNonAcSleeper;
+		this.fareOfAcSleeper = fareOfAcSleeper;
+	}
+
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getSource() {
+		return source;
+	}
+	
+	public void setSource(String source) {
+		this.source = source;
+	}
+	
+	public String getDestination() {
+		return destination;
+	}
+	
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+	
+	public String getBusName() {
+		return busName;
+	}
+	
+	public void setBusName(String busName) {
+		this.busName = busName;
+	}
+	
+	public int getHoursOfJourney() {
+		return hoursOfJourney;
+	}
+	
+	public void setHoursOfJourney(int hoursOfJourney) {
+		this.hoursOfJourney = hoursOfJourney;
+	}
+	
+	public int getNumberOfStops() {
+		return numberOfStops;
+	}
+	
+	public void setNumberOfStops(int numberOfStops) {
+		this.numberOfStops = numberOfStops;
+	}
+	
+	public int getFareOfEconomyClass() {
+		return fareOfNonAcSleeper;
+	}
+	
+	public void setFareOfEconomyClass(int fareOfEconomyClass) {
+		this.fareOfNonAcSleeper = fareOfEconomyClass;
+	}
+
+	public int getFareOfNonAcSleeper() {
+		return fareOfNonAcSleeper;
+	}
+
+	public void setFareOfNonAcSleeper(int fareOfNonAcSleeper) {
+		this.fareOfNonAcSleeper = fareOfNonAcSleeper;
+	}
+
+	public int getFareOfAcSleeper() {
+		return fareOfAcSleeper;
+	}
+
+	public void setFareOfAcSleeper(int fareOfAcSleeper) {
+		this.fareOfAcSleeper = fareOfAcSleeper;
+	}
+	
+    
+}

@@ -1,0 +1,14 @@
+package com.axis.Service;
+
+
+import java.util.Optional;
+
+import com.axis.Entity.Booking;
+
+public interface BookingService {
+	
+	
+	Booking trainbooking(String username, int numberOfPassengers, int numberOfMode,
+			String reservationClass, String travelDate);
+	
+}

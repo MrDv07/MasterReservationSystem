@@ -1,0 +1,5 @@
+package com.axis.Entity;
+
+public class BookingDetails {
+
+}

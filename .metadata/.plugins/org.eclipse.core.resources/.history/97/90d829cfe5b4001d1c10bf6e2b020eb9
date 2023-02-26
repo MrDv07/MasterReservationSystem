@@ -1,0 +1,20 @@
+server:
+  port: 9093
+
+spring:
+  data:
+    mongodb:
+      database: ${env.MONGO_DATABASE}
+      uri: mongodb+srv://${env.MONGO_USER}:${env.MONGO_PASSWORD}@${env.MONGO_CLUSTER}
+
+  application:
+    name: Booking-Service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+     defaultZone: http://localhost:8761/eureka
+     instance:     
+     hostname: localhost
