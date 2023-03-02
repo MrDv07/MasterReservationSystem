@@ -47,4 +47,10 @@ public class TrainServiceImpl  implements TrainService{
     public Train getTrainByName(String trainName) {
         return trainRepository.findByTrainName(trainName);
     }
+
+	@Override
+	public List<Train> getAllTrains() {
+		// TODO Auto-generated method stub
+		return trainRepository.findAll();
+	}
 }

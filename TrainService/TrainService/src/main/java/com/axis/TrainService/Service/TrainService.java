@@ -8,6 +8,8 @@ import java.util.List;
 public interface TrainService {
 
     Train addTrain(Train train);
+    
+    List<Train> getAllTrains();
 
     Train getTrainById(int id);
 

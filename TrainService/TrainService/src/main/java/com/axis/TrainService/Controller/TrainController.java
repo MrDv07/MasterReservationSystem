@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("api/v1/train")
 public class TrainController {
 
@@ -22,9 +23,14 @@ public class TrainController {
 		return new ResponseEntity<Train>(trainService.addTrain(train), HttpStatus.OK);
 	}
 
-	@GetMapping("/findtrain")
-	public ResponseEntity<Train> findTrainById(@RequestBody Train train){
-		return new ResponseEntity<Train>(trainService.getTrainById(train.getId()), HttpStatus.FOUND);
+	@GetMapping("/findtrain/{id}")
+	public ResponseEntity<Train> findTrainById(@PathVariable int id){
+		return new ResponseEntity<Train>(trainService.getTrainById(id), HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/findalltrain")
+	public ResponseEntity<List<Train>> findAllTrains(){
+		return new ResponseEntity<>(trainService.getAllTrains(), HttpStatus.FOUND);
 	}
 
 

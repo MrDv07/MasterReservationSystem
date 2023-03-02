@@ -1,5 +1,6 @@
 package com.axis.UserService.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.axis.UserService.entity.User;
@@ -77,6 +78,11 @@ public class UserServiceIMPL implements UserService {
 	}
 	else
 		throw new IdNotValidException("No id present to Delete");
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		return userRepository.findAll();
 	}
 
 }

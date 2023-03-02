@@ -11,6 +11,8 @@ import org.bson.types.ObjectId;
 public interface UserService {
 	
 	User addUser(User user);
+	
+	List<User> getAllUsers();
 
 	User getUserByUserName(String username);
 
