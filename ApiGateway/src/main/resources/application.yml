@@ -1,0 +1,49 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: API-GATEWAY
+    
+  cloud:
+    gateway:
+      routes:
+      - id: USER-SERVICE
+        uri: lb://USER-SERVICE
+        predicates:
+        - Path=/api/v1/user/**
+        
+      - id: TRAIN-SERVICE
+        uri: lb://TRAIN-SERVICE
+        predicates:
+        - Path=/api/v1/train/**
+        
+      - id: BUS-SERVICE
+        uri: lb://BUS-SERVICE
+        predicates:
+        - Path=/api/v1/bus/**
+        
+        
+      - id: FLIGHT-SERVICE
+        uri: lb://FLIGHT-SERVICE
+        predicates:
+        - Path=/api/v1/flight/**
+        
+        
+      - id: BOOKING-SERVICE
+        uri: lb://BOOKING-SERVICE
+        predicates:
+        - Path=/api/v1/booking/**
+        
+        
+          
+    
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+     defaultZone: http://localhost:8761/eureka
+     instance:     
+     hostname: localhost
