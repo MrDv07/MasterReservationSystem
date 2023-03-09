@@ -50,12 +50,12 @@ public class UserController {
 		return new ResponseEntity<User>(userService.getUserByUserName(user.getUsername()), HttpStatus.FOUND);
 	}
 
-	@PutMapping("/updatebyid")
-	public ResponseEntity<User> updateUserById(@RequestBody ObjectId id , User user){
+	@PutMapping("/updatebyid/{id}")
+	public ResponseEntity<User> updateUserById(@PathVariable ObjectId id ,@RequestBody User user){
 		return new ResponseEntity<User>(userService.updateUserById(id, user), HttpStatus.CREATED);
 	} 
 	
-	@DeleteMapping("/deleteuser")
+	@DeleteMapping("/deleteuser/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable ObjectId id){
 		return new ResponseEntity<String>(userService.deleteUserById(id), HttpStatus.FOUND);
 	}

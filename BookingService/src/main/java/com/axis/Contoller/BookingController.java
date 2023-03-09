@@ -27,17 +27,17 @@ public class BookingController {
     
     @PostMapping("/TrainTicket")
     public ResponseEntity<Booking> trainBooking(@RequestBody Booking booking) {
-        return new ResponseEntity<Booking>(bookingService.trainbooking( booking.getUsername(),booking.getNumberOfMode(), booking.getNumberOfPassengers(), booking.getReservationClass(), booking.getTravelDate()), HttpStatus.OK);
+        return new ResponseEntity<Booking>(bookingService.trainbooking(booking), HttpStatus.OK);
     }
     
     @PostMapping("/FlightTicket")
     public ResponseEntity<Booking> flightBooking(@RequestBody Booking booking) {
-        return new ResponseEntity<Booking>(bookingService.flightbooking(booking.getUsername(), booking.getNumberOfMode(), booking.getNumberOfPassengers(), booking.getReservationClass(), booking.getTravelDate()), HttpStatus.OK);
+        return new ResponseEntity<Booking>(bookingService.flightbooking(booking), HttpStatus.OK);
     }
     
     @PostMapping("/BusTicket")
     public ResponseEntity<Booking> BusBooking(@RequestBody Booking booking) {
-        return new ResponseEntity<Booking>(bookingService.busbooking(booking.getUsername(), booking.getNumberOfMode(), booking.getNumberOfPassengers(), booking.getReservationClass(), booking.getTravelDate()), HttpStatus.OK);
+        return new ResponseEntity<Booking>(bookingService.busbooking(booking), HttpStatus.OK);
     }
     
     @GetMapping("/findbyusername/{username}")

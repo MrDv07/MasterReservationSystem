@@ -7,14 +7,11 @@ import com.axis.Entity.Booking;
 public interface BookingService {
 	
 	
-	Booking trainbooking(String username, int numberOfPassengers, int numberOfMode,
-			String reservationClass, String travelDate);
+	Booking trainbooking(Booking booking);
 	
-	Booking flightbooking(String username, int numberOfPassengers, int numberOfMode,
-			String reservationClass, String travelDate);
+	Booking flightbooking(Booking booking);
 	
-	Booking busbooking(String username, int numberOfPassengers, int numberOfMode,
-			String reservationClass, String travelDate);
+	Booking busbooking(Booking booking);
 	
 	List<Booking> getAllBookingByUserName(String username);
 	

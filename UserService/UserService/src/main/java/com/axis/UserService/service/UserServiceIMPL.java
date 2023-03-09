@@ -62,10 +62,13 @@ public class UserServiceIMPL implements UserService {
 	public User updateUserById(ObjectId id, User user) {
 		
 	Optional<User> emp = userRepository.findById(id);
-	if(emp.isPresent())
+	if(emp.isPresent()) {
+		user.setId(emp.get().getId());
 		return userRepository.save(user);
-	else
-		throw new IdNotValidException("no id present to Update");
+	}
+	else {
+		throw new IdNotValidException("No id present to Update");
+	   }
 	}
 
 	@Override

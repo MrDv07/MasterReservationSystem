@@ -33,34 +33,34 @@ public class BookingServiceImpl implements BookingService{
     private String trainServiceUrl = "http://localhost:9092/api/v1/train/findtrain/";
 
 	@Override
-	public Booking trainbooking(String username, int numberOfPassengers, int numberOfMode,String reservationClass, String travelDate){
+	public Booking trainbooking(Booking booking ){
 		
 		
-		String trainUrl = trainServiceUrl+numberOfMode;
+		String trainUrl = trainServiceUrl+booking.getNumberOfMode();
 		
 		Train train = restTemplate.getForObject(trainUrl, Train.class);
 		
-        int fare = calculateFare(train ,reservationClass ,numberOfPassengers);
+        int fare = calculateFare(train ,booking.getReservationClass() ,booking.getNumberOfPassengers());
         
         
        
-        Booking booking = new Booking();
-        booking.setUsername(username);
-        booking.setBookingDate(LocalDate.now());
-        booking.setServiceType("Train");
-        booking.setNameOfMode(train.getTrainName());
-        booking.setNumberOfMode(train.getId());
-        booking.setReservationClass(reservationClass);
-        booking.setSource(train.getSource());
-        booking.setDestination(train.getDestination());
-        booking.setTravelDate(travelDate);
-        booking.setNumberOfPassengers(numberOfPassengers);
-        booking.setNumberOfStops(train.getNumberOfStops());
-        booking.setHoursOfJourney(train.getHoursOfJourney());
-        booking.setFare(fare);
+        Booking booking2 = new Booking();
+        booking2.setUsername(booking.getUsername());
+        booking2.setBookingDate(LocalDate.now());
+        booking2.setServiceType("Train");
+        booking2.setNameOfMode(train.getTrainName());
+        booking2.setNumberOfMode(train.getId());
+        booking2.setReservationClass(booking.getReservationClass());
+        booking2.setSource(train.getSource());
+        booking2.setDestination(train.getDestination());
+        booking2.setTravelDate(booking.getTravelDate());
+        booking2.setNumberOfPassengers(booking.getNumberOfPassengers());
+        booking2.setNumberOfStops(train.getNumberOfStops());
+        booking2.setHoursOfJourney(train.getHoursOfJourney());
+        booking2.setFare(fare);
         
         
-        return bookingRepository.save(booking);
+        return bookingRepository.save(booking2);
     }
     
     private int calculateFare(Train train, String reservationClass, int numberOfPassengers) {
@@ -87,36 +87,35 @@ public class BookingServiceImpl implements BookingService{
     private String flightServiceUrl = "http://localhost:9093/api/v1/flight/findflight/";
 
 	@Override
-	public Booking flightbooking(String username, int numberOfPassengers, int numberOfMode, String reservationClass,
-			String travelDate) {
+	public Booking flightbooking(Booking booking) {
 		
 		
 		
-		String flightUrl = flightServiceUrl+numberOfMode;
+		String flightUrl = flightServiceUrl+booking.getNumberOfMode();
 		
 		Flight flight = restTemplate.getForObject(flightUrl, Flight.class);
 		
-        int fare = calculateFare(flight ,reservationClass ,numberOfPassengers);
+        int fare = calculateFare(flight ,booking.getReservationClass() ,booking.getNumberOfPassengers());
         
         
        
-        Booking booking = new Booking();
-        booking.setUsername(username);
-        booking.setBookingDate(LocalDate.now());
-        booking.setServiceType("Flight");
-        booking.setNameOfMode(flight.getFlightName());
-        booking.setNumberOfMode(flight.getId());
-        booking.setReservationClass(reservationClass);
-        booking.setSource(flight.getSource());
-        booking.setDestination(flight.getDestination());
-        booking.setTravelDate(travelDate);
-        booking.setNumberOfPassengers(numberOfPassengers);
-        booking.setNumberOfStops(flight.getNumberOfStops());
-        booking.setHoursOfJourney(flight.getHoursOfJourney());
-        booking.setFare(fare);
+        Booking booking2 = new Booking();
+        booking2.setUsername(booking.getUsername());
+        booking2.setBookingDate(LocalDate.now());
+        booking2.setServiceType("Flight");
+        booking2.setNameOfMode(flight.getFlightName());
+        booking2.setNumberOfMode(flight.getId());
+        booking2.setReservationClass(booking.getReservationClass());
+        booking2.setSource(flight.getSource());
+        booking2.setDestination(flight.getDestination());
+        booking2.setTravelDate(booking.getTravelDate());
+        booking2.setNumberOfPassengers(booking.getNumberOfPassengers());
+        booking2.setNumberOfStops(flight.getNumberOfStops());
+        booking2.setHoursOfJourney(flight.getHoursOfJourney());
+        booking2.setFare(fare);
         
         
-        return bookingRepository.save(booking);
+        return bookingRepository.save(booking2);
     }
     
     private int calculateFare(Flight flight, String reservationClass, int numberOfPassengers) {
@@ -137,35 +136,34 @@ public class BookingServiceImpl implements BookingService{
     private String busServiceUrl = "http://localhost:9094/api/v1/bus/findbus/";
 
 	@Override
-	public Booking busbooking(String username, int numberOfPassengers, int numberOfMode, String reservationClass,
-			String travelDate) {
+	public Booking busbooking(Booking booking) {
 		
 		
-		String busUrl = busServiceUrl+numberOfMode;
+		String busUrl = busServiceUrl+booking.getNumberOfMode();
 		
 		Bus bus = restTemplate.getForObject(busUrl, Bus.class);
 		
-        int fare = calculateFare(bus ,reservationClass ,numberOfPassengers);
+        int fare = calculateFare(bus ,booking.getReservationClass() ,booking.getNumberOfPassengers());
         
         
        
-        Booking booking = new Booking();
-        booking.setUsername(username);
-        booking.setBookingDate(LocalDate.now());
-        booking.setServiceType("Bus");
-        booking.setNameOfMode(bus.getBusName());
-        booking.setNumberOfMode(bus.getId());
-        booking.setReservationClass(reservationClass);
-        booking.setSource(bus.getSource());
-        booking.setDestination(bus.getDestination());
-        booking.setTravelDate(travelDate);
-        booking.setNumberOfPassengers(numberOfPassengers);
-        booking.setNumberOfStops(bus.getNumberOfStops());
-        booking.setHoursOfJourney(bus.getHoursOfJourney());
-        booking.setFare(fare);
+        Booking booking1 = new Booking();
+        booking1.setUsername(booking.getUsername());
+        booking1.setBookingDate(LocalDate.now());
+        booking1.setServiceType("Bus");
+        booking1.setNameOfMode(bus.getBusName());
+        booking1.setNumberOfMode(bus.getId());
+        booking1.setReservationClass(booking.getReservationClass());
+        booking1.setSource(bus.getSource());
+        booking1.setDestination(bus.getDestination());
+        booking1.setTravelDate(booking.getTravelDate());
+        booking1.setNumberOfPassengers(booking.getNumberOfPassengers());
+        booking1.setNumberOfStops(bus.getNumberOfStops());
+        booking1.setHoursOfJourney(bus.getHoursOfJourney());
+        booking1.setFare(fare);
         
         
-        return bookingRepository.save(booking);
+        return bookingRepository.save(booking1);
     }
     
     private int calculateFare(Bus bus , String reservationClass, int numberOfPassengers) {
