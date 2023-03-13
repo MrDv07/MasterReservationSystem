@@ -10,6 +10,36 @@ spring:
 
   application:
     name: User-Service
+    
+  cloud:
+    gateway:
+      routes:
+        
+      - id: TRAIN-SERVICE
+        uri: lb://TRAIN-SERVICE
+        predicates:
+        - Path=/api/v1/train/**
+        
+      - id: BUS-SERVICE
+        uri: lb://BUS-SERVICE
+        predicates:
+        - Path=/api/v1/bus/**
+        
+      - id: FLIGHT-SERVICE
+        uri: lb://FLIGHT-SERVICE
+        predicates:
+        - Path=/api/v1/flight/**
+        
+        
+      - id: BOOKING-SERVICE
+        uri: lb://BOOKING-SERVICE
+        predicates:
+        - Path=/api/v1/booking/** 
+         
+  main:
+    web-application-type: reactive
+    
+  
 
 eureka:
   client:
@@ -19,3 +49,9 @@ eureka:
      defaultZone: http://localhost:8761/eureka
      instance:     
      hostname: localhost
+     
+     
+
+
+
+     

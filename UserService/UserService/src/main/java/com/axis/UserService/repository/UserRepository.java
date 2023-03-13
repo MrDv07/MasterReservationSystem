@@ -13,6 +13,9 @@ public interface UserRepository extends MongoRepository<User, ObjectId> {
 
     @Query("{'username' : ?0}")
     User getUserByUserName(String username);
+    
+    @Query("{'role' : ?0}")
+    User getUserByRole(String role);
 	
 
 }

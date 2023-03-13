@@ -2,10 +2,8 @@ package com.axis.UserService.entity;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
 
 
 @Document(collection = "user")
@@ -20,9 +18,8 @@ public class User {
 	private String phoneNumber;
 	private String gender;
 	private String emailId;
+	private String role;
 
-	@Transient
-	private List<transactionHistory> transactionHistories;
 	
 	
 	
@@ -34,7 +31,7 @@ public class User {
 	
 
 	public User(ObjectId id, String name, int age, String username, String password, String phoneNumber, String gender,
-			String emailId, List<transactionHistory> transactionHistories) {
+			String emailId, String role) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -44,7 +41,7 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.gender = gender;
 		this.emailId = emailId;
-		this.transactionHistories = transactionHistories;
+		this.role=role;
 	}
 
 
@@ -113,13 +110,14 @@ public class User {
 		this.emailId = emailId;
 	}
 
-	public List<transactionHistory> getTransactionHistories() {
-		return transactionHistories;
+	public String getRole() {
+		return role;
 	}
 
-	public void setTransactionHistories(List<transactionHistory> transactionHistories) {
-		this.transactionHistories = transactionHistories;
+	public void setRole(String role) {
+		this.role = role;
 	}
+	
 	
 	
 	

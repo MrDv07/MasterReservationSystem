@@ -1,7 +1,6 @@
 package com.axis.UserService.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.axis.UserService.entity.User;
 import org.bson.types.ObjectId;

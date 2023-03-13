@@ -36,6 +36,8 @@ public class UserServiceIMPL implements UserService {
 		
 		}
 		
+		user.setRole("USER");
+		
 		return userRepository.save(user);
 	}
 
