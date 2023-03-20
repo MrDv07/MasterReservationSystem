@@ -33,10 +33,9 @@ public class TrainController {
 		return new ResponseEntity<>(trainService.getAllTrains(), HttpStatus.FOUND);
 	}
 
-
-	@GetMapping("/findtrainbystation")
-	public ResponseEntity<List<Train>> getTrainByStations(@RequestBody Train train){
-		return new ResponseEntity<List<Train>>(trainService.getTrainBySourceAndDestination(train.getSource(), train.getDestination()), HttpStatus.FOUND);
+	@GetMapping("/findtrainbystation/{source}/{destination}")
+	public ResponseEntity<List<Train>> getTrainByStations(@PathVariable String source ,@PathVariable String destination){
+		return new ResponseEntity<List<Train>>(trainService.getTrainBySourceAndDestination(source , destination), HttpStatus.FOUND);
 	}
 
 	@GetMapping("/findtrainbytrainname")

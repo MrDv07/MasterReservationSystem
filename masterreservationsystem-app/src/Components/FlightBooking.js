@@ -99,3 +99,5 @@ export const FlightBooking = () => {
     </div>
   )
 }
+
+export default FlightBooking;

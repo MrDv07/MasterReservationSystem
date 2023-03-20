@@ -1,0 +1,10 @@
+.homepage {
+    background-image: url('reputed_travel_agents.jpg');
+    /* background-color: blue; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 650px;
+    width: 100%;
+  }
+  

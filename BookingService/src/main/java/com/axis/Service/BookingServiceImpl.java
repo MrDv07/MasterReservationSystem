@@ -2,17 +2,19 @@ package com.axis.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.axis.Config.TrainServiceFeign;
+
 import com.axis.Entity.Booking;
 import com.axis.Entity.Bus;
 import com.axis.Entity.Flight;
 import com.axis.Entity.Train;
-import com.axis.Exception.ZeroException;
+import com.axis.Exception.IdNotValidException;
 import com.axis.Repository.BookingRepository;
 
 @Service
@@ -186,8 +188,29 @@ public class BookingServiceImpl implements BookingService{
 		
 		return bookingRepository.getBookingByUserName(username);
 	}
+
+	@Override
+	public List<Booking> getAll() {
+		
+		return bookingRepository.findAll();
+	}
+
+	@Override
+	public String deleteBooking(ObjectId id) {
+	
+		Optional<Booking> bh = bookingRepository.findById(id);
+		if(bh.isPresent()){
+			bookingRepository.deleteById(id);
+			return " Booking Cancelled ";
+		}
+		else 
+			throw new IdNotValidException("Id Not Found");
+		}
+	
 	
 }
+	
+
     
 
 

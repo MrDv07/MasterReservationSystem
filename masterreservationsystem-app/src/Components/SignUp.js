@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import UserService from '../Services/UserService';
 
 const SignUp = () => {
+
+  const navigate = useNavigate()
 
   const [user, setUser ] = useState({
     name:"",
@@ -23,13 +26,27 @@ const SignUp = () => {
     UserService.saveUser(user)
      .then((response)=>{
         console.log(response)
-        alert("Successfully Resgistered..!!")
+        alert("Successfully Registered..!!")
+        navigate("/")
     }).catch((err) => {
         console.log(err)
         alert(err)
     })
-    
   }
+
+  const reset = (e) => {
+    e.preventDefault();
+    setUser({
+    name:"",
+    age:"",
+    gender:"",
+    emailId:"",
+    phoneNumber:"",
+    username:"",
+    password:""})
+  }
+
+   
 
 
   return (
@@ -40,7 +57,7 @@ const SignUp = () => {
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
                 <label className='block text-gray-600 text-sm font-normal' >Full Name</label>
-                <input type="text" 
+                <input required type="text" 
                 name='name' 
                 value={user.name} 
                 onChange={(e)=> handleChange(e)}
@@ -48,7 +65,7 @@ const SignUp = () => {
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
                 <label className='block text-gray-600 text-sm font-normal' >Age</label>
-                <input type="number" 
+                <input required type="number" 
                 name='age' 
                 value={user.age} 
                 onChange={(e)=> handleChange(e)}
@@ -67,7 +84,7 @@ const SignUp = () => {
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
                 <label className='block text-gray-600 text-sm font-normal' >Phone Number</label>
-                <input type="number" 
+                <input required type="number" 
                 name='phoneNumber' 
                 value={user.phoneNumber} 
                 onChange={(e)=> handleChange(e)}
@@ -75,7 +92,7 @@ const SignUp = () => {
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
                 <label className='block text-gray-600 text-sm font-normal' >Email</label>
-                <input type="email" 
+                <input required type="email" 
                 name='emailId' 
                 value={user.emailId}
                 onChange={(e)=> handleChange(e)} 
@@ -83,7 +100,7 @@ const SignUp = () => {
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
                 <label className='block text-gray-600 text-sm font-normal' >Username</label>
-                <input type="text" 
+                <input required type="text" 
                 name='username' 
                 value={user.username}
                 onChange={(e)=> handleChange(e)} 
@@ -91,7 +108,7 @@ const SignUp = () => {
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
                 <label className='block text-gray-600 text-sm font-normal' >Password</label>
-                <input type="password" 
+                <input required type="password" 
                 name='password' 
                 value={user.password}
                 onChange={(e)=> handleChange(e)} 
@@ -102,7 +119,7 @@ const SignUp = () => {
                     <button onClick={saveUser} className='rounded text-white font-semibold bg-green-600 hover:bg-green-900 '>
                         Save
                     </button>
-                    <button className='rounded text-white font-semibold bg-red-500 hover:bg-red-900 '>
+                    <button onClick={reset} className='rounded text-white font-semibold bg-red-600 hover:bg-red-900 '>
                         Clear
                     </button>
                 </div>
@@ -112,4 +129,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignUp;

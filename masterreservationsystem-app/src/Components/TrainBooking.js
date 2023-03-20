@@ -33,13 +33,13 @@ export const TrainBooking = () => {
 
 
   return (
-    <div className="flex max-w-2xl mx-auto shadow border-b">
-        <div className="px-8 py-8">
+    <div className="flex max-w-min rounded px-24  my-10  mx-auto shadow border-b">
+        <div className="rounded px-10 py-5 mx-auto my-10 bg-gray-900 ">
             <div className="text-2xl">
-                <h1 className="font-serif">Train Booking</h1>
+                <h1 className="font-serif text-white">Train Booking</h1>
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
-                <label className='block text-gray-600 text-sm font-normal' >Username</label>
+                <label className='block text-white text-sm font-normal' >Username</label>
                 <input type="text" 
                 name='username' 
                 value={booking.username}
@@ -47,7 +47,7 @@ export const TrainBooking = () => {
                 className='h-10 w-96 border mt-2 px-2 py-2'></input>
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
-                <label className='block text-gray-600 text-sm font-normal'>Number Of Train</label>
+                <label className='block text-white text-sm font-normal'>Number Of Train</label>
                 <input type="number" 
                 name='numberOfMode' 
                 value={booking.numberOfMode} 
@@ -55,7 +55,7 @@ export const TrainBooking = () => {
                 className='h-10 w-96 border mt-2 px-2 py-2'></input>
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
-                <label className='block text-gray-600 text-sm font-normal' >Reservation class</label>
+                <label className='block text-white text-sm font-normal' >Reservation class</label>
                 <select 
                 name='reservationClass' 
                 value={booking.reservationClass}
@@ -69,7 +69,7 @@ export const TrainBooking = () => {
                 </select>
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
-                <label className='block text-gray-600 text-sm font-normal' >Travel Date</label>
+                <label className='block text-white text-sm font-normal' >Travel Date</label>
                 <input type="date" 
                 name='travelDate' 
                 value={booking.travelDate} 
@@ -77,7 +77,7 @@ export const TrainBooking = () => {
                 className='h-10 w-96 border mt-2 px-2 py-2'></input>
             </div>
             <div className='items-center justify-center h-14 w-full my-4 '>
-                <label className='block text-gray-600 text-sm font-normal' >Number Of Passengers</label>
+                <label className='block text-white text-sm font-normal' >Number Of Passengers</label>
                 <input type="number" 
                 name='numberOfPassengers' 
                 value={booking.numberOfPassengers} 
@@ -99,3 +99,6 @@ export const TrainBooking = () => {
     </div>
   )
 }
+
+
+export default TrainBooking

@@ -15,9 +15,9 @@ section{
     min-height: 100vh;
     width: 100%;
     
-    background: url("reputed_travel_agents.jpg")no-repeat;
+    /* background: url("reputed_travel_agents.jpg")no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
 }
 .form-box{
     position: relative;
