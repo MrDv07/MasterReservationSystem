@@ -1,10 +1,37 @@
 .homepage {
     background-image: url('reputed_travel_agents.jpg');
-    /* background-color: blue; */
+   
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 650px;
     width: 100%;
   }
+
+.train{
+  background-image: url('Train-HD-Wallpaper-Free-download.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+}
+
+.flight{
+  background-image: url('airplanes-sunset-with-aircraft-jet-hq-background-nice-hd.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+}
+
+.bus{
+  background-image: url('HD-wallpaper-scania-touring-2019-large-passenger-bus-tourist-bus-new-blue-scania-passenger-transport-buses-scania.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+}
   

@@ -37,9 +37,9 @@ public class FlightController {
 	}
 
 
-	@GetMapping("/findflightbyairports")
-	public ResponseEntity<List<Flight>> getFlightByStations(@RequestBody Flight flight){
-		return new ResponseEntity<List<Flight>>(flightService.getFlightBySourceAndDestination(flight.getSource(), flight.getDestination()), HttpStatus.FOUND);
+	@GetMapping("/findflightbyairports/{source}/{destination}")
+	public ResponseEntity<List<Flight>> getFlightByStations(@PathVariable String source , @PathVariable String destination){
+		return new ResponseEntity<List<Flight>>(flightService.getFlightBySourceAndDestination(source , destination), HttpStatus.FOUND);
 	}
 
 	@GetMapping("/findflightbyflightname")

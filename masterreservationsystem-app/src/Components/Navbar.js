@@ -17,6 +17,9 @@ const Navbar = () => {
           <Link to="/login" className="text-white text-lg mx-3 hover:text-gray-500">
             Login
           </Link>
+          <Link to="/transactionhistory" className="text-white text-lg mx-3 hover:text-gray-500">
+            Transaction History
+          </Link>
         </div>
       </div>
     </div>
